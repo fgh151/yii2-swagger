@@ -23,7 +23,7 @@ class SwaggerController extends Controller
     public function actionUi()
     {
         return $this->render('index', [
-            'restUrl' => Url::to(['/swagger/swagger/doc']),
+            'restUrl' => Url::to([$this->module->schema]),
         ]);
     }
 }

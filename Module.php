@@ -7,6 +7,7 @@ use yii\base\Module as BaseModule;
 class Module extends BaseModule
 {
     public array $sources = [];
+    public $schema = '/swagger/swagger/doc';
 
     public function init()
     {

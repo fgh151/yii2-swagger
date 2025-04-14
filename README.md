@@ -34,7 +34,8 @@ Usage
         'sources' => [
             dirname(__DIR__).'/controllers', //here can be aliases, like '@app/controllers'
             dirname(__DIR__).'/models',
-        ]
+        ],
+        'schema' => '/api/schema', //optional depend on route config
     ],
 ],
 ```
