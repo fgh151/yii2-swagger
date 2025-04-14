@@ -11,7 +11,11 @@ class SwaggerController extends Controller
 {
     public function actionDoc()
     {
-        $openapi = Generator::scan($this->module->sources);
+        $src = array_map(function ($item) {
+            return \Yii::getAlias( $item);
+        }, $this->module->sources);
+
+        $openapi = Generator::scan($src);
 
         $this->asJson(Json::decode($openapi->toJson()));
     }

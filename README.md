@@ -32,7 +32,7 @@ Usage
     'swagger' => [
         'class' => fgh151\swagger\Module::class,
         'sources' => [
-            dirname(__DIR__).'/controllers',
+            dirname(__DIR__).'/controllers', //here can be aliases, like '@app/controllers'
             dirname(__DIR__).'/models',
         ]
     ],
