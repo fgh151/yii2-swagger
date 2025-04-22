@@ -22,6 +22,7 @@ class SwaggerController extends Controller
 
     public function actionUi()
     {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_HTML;
         return $this->render('index', [
             'restUrl' => Url::to([$this->module->schema]),
         ]);
