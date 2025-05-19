@@ -69,7 +69,7 @@ class SwaggerController extends Controller
 }
 ```
 
-4. Add annotations to controllers and models. Example:
+4. Add annotations to controllers. Example:
 
 ```php
 class SomeController extends \yii\web\Controller {
@@ -80,6 +80,7 @@ class SomeController extends \yii\web\Controller {
 }
 ```
 
+5. Add annotations to models. Example:
 ```php
 #[Schema(title: 'MyModel', description: 'Magic mode', properties: [
     new Property(property: 'Id', description: 'Идентификатор', type: 'integer'),
@@ -89,4 +90,29 @@ class MyModel extends ActiveRecord
 }
 ```
 
+6. Add annotations to DTO. Example:
+```php
+#[Schema(title: 'MyModel', description: 'Magic DTO')]
+class MyModel extends ActiveRecord
+{
+    #[\OpenApi\Attributes\Property(title: 'Some attribute name')]
+    public string $attributeName = '';
+}
+```
+
 See [annotations](https://zircote.github.io/swagger-php/guide/attributes.html) 
+
+Cache
+-----
+To use cache for generated swagger json specify module parameters
+
+```php
+'modules' => [
+        'swagger' => [
+            'class' => \fgh151\swagger\Module::class,
+            'enableCache' => true,
+            'cacheDuration' => 3600, //Optional, default 3600
+            'cache' => 'cache', //Cache component, string|CacheInterface, optional, default 'cache'
+        ],
+    ]
+```
